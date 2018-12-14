@@ -1,0 +1,18 @@
+{
+  "name": "4all",
+  "version": "1.0.0",
+  "description": "Sistema para controle de alugueis de filme de uma Locadora",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lukas Piccini",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.8"
+  }
+}
