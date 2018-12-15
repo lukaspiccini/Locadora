@@ -1,5 +1,5 @@
 var db = require('../Database/db');
-var HashHelper = require('../Helpers/Criptografia');
+var HashHelper = require('../Helpers/Criptografy');
 var JwtHelper = require('../Helpers/Jwt');
 require('dotenv').config();
 

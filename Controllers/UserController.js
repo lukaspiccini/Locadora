@@ -1,5 +1,5 @@
 var db = require('../Database/db');
-var HashHelper = require('../Helpers/Criptografia');
+var HashHelper = require('../Helpers/Criptografy');
 
 exports.CreateUser = function(req,res){
     var userRequest = req.body;
