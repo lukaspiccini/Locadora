@@ -9,7 +9,9 @@
   "author": "Lukas Piccini",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
     "mysql": "^2.16.0",
