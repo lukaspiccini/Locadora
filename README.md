@@ -64,7 +64,8 @@ Resposta:
 ### GET /movies/movies/:titulo
 Retorna os dados relativo ao filme especificado. A pesquisa retorna filmes que contenham o parâmetro informado no titulo para não ser necessário informar o titulo inteiro do filme, portanto, pode retornar mais de um filme.
 
-Exemplo de requisição: /movies/movies/contra-ataca
+Exemplo de requisição: **/movies/movies/contra-ataca**
+
 Resposta: 
 ```
 [
