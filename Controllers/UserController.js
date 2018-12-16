@@ -1,4 +1,4 @@
-var db = require('../Database/db');
+var userRepositorie = require('../Repositories/UserRepositorie');
 var HashHelper = require('../Helpers/Criptografy');
 
 exports.CreateUser = function(req,res){
@@ -10,24 +10,21 @@ exports.CreateUser = function(req,res){
         return;
     }
     else {
-        db.query("INSERT INTO users SET ?", userRequest, function(erro, resultado) {
-            if (erro) {
-                res.status(500).send( {message: "Erro ao inserir usuario no banco de dados"} )
+        userRepositorie.CreateUser(userRequest).then(function(resultado, erro) {
+            if(erro) {
+                res.status(500).send({message: "Erro ao criar usuario"});
                 return;
-            } 
-            else {
-                var idInserido = resultado.insertId;
-    
-                res.status(201).send({
-                    userId: idInserido,
-                    links: [
-                        {
-                            rel: "self",
-                            href: "http://localhost:3000/users/user/" + idInserido
-                        }
-                    ]
-                });
             }
+            var idInserido = resultado.insertId;
+            res.status(201).send({
+                userId: idInserido,
+                links: [
+                    {
+                        rel: "self",
+                        href: "http://localhost:3000/users/user/" + idInserido
+                    }
+                ]
+            });
         });
     }
 }

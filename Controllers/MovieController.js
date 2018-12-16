@@ -1,8 +1,12 @@
 var movieRepositorie = require('../Repositories/MovieRepositorie');
-require('dotenv').config();
 
 exports.GetAll = function(req,res) {
-    movieRepositorie.getAll().then(function(resultado){
+    movieRepositorie.GetAll().then(function(resultado, erro){
+        if(erro) {
+            res.status(500).send({message:"Erro ao buscar todos os filmes"});
+            return;
+        }
+
         if(resultado.length > 0) {
             res.status(200).send({movies: resultado});
             return;
@@ -17,7 +21,12 @@ exports.GetAll = function(req,res) {
 exports.GetByTitle = function(req,res) {
     var title = req.params.title;
 
-    movieRepositorie.getByTitle(title).then(function(resultado){
+    movieRepositorie.GetByTitle(title).then(function(resultado, erro){
+        if(erro) {
+            res.status(500).send({message:"Erro ao buscar filme pelo titulo"});
+            return;
+        }
+
         if(resultado.length > 0) {
             res.status(200).send(resultado);
             return;

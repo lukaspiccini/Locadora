@@ -1,4 +1,4 @@
-var db = require('../Database/db');
+var authenticationRepositorie = require('../Repositories/AuthenticationRespositorie');
 var HashHelper = require('../Helpers/Criptografy');
 var JwtHelper = require('../Helpers/Jwt');
 require('dotenv').config();
@@ -6,7 +6,7 @@ require('dotenv').config();
 exports.Login = function(req,res) {
     var userRequest = req.body;
 
-    db.query("SELECT * FROM users WHERE Email = ?", userRequest.Email, function(erro, resultado){
+    authenticationRepositorie.GetUserByEmail(userRequest.email).then(function(resultado,erro) {
         if(erro) {
             res.status(500).send({message: "Erro ao buscar o usuario no banco de dados"});
             return;
@@ -39,13 +39,12 @@ exports.Login = function(req,res) {
             }
         }
     });
-    
 };
 
 exports.Logout = function(req,res) {
     const token = req.headers["authorization"];
 
-    db.query("INSERT INTO tokens_blacklist SET ?", {Token: token, InvalidatedAt: new Date().toLocaleString()}, function(erro, resultado){
+    authenticationRepositorie.BlackListToken(token).then(function(resultado,erro) {
         if(erro) {
             res.status(500).send({message: "Erro ao invalidar token"});
             return;

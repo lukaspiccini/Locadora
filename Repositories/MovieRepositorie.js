@@ -1,7 +1,7 @@
 var db = require('../Database/db');
 
 module.exports = new class MovieRepositorie {
-    getAll() {   
+    GetAll() {   
         return new Promise(function(resolve, reject) {
             var sql = "SELECT m.*, s.StockQuantity " +
                       "FROM movies m INNER JOIN stock s " +
@@ -17,7 +17,7 @@ module.exports = new class MovieRepositorie {
         });
     }
     
-    getByTitle(title) {
+    GetByTitle(title) {
         return new Promise(function(resolve,reject){
             var sql = "SELECT m.*, s.StockQuantity " +
                       "FROM movies m INNER JOIN stock s " +
