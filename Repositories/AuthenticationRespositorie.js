@@ -3,7 +3,7 @@ var db = require('../Database/db');
 module.exports = new class AuthenticationRepositorie {
     GetUserByEmail(email) {
         return new Promise(function(resolve,reject) {
-            db.query("SELECT * FROM users WHERE Email = ?", userRequest.Email, function(erro, resultado) {
+            db.query("SELECT * FROM users WHERE Email = ?", email, function(erro, resultado) {
                 if(erro) {
                     return reject(erro);
                 }

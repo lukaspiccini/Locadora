@@ -6,7 +6,7 @@ require('dotenv').config();
 exports.Login = function(req,res) {
     var userRequest = req.body;
 
-    authenticationRepositorie.GetUserByEmail(userRequest.email).then(function(resultado,erro) {
+    authenticationRepositorie.GetUserByEmail(userRequest.Email).then(function(resultado,erro) {
         if(erro) {
             res.status(500).send({message: "Erro ao buscar o usuario no banco de dados"});
             return;
