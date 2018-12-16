@@ -41,6 +41,7 @@ devem ser acompanhadas do Token de autenticação adquirido no endpoint de login
 
 ### GET /movies/movies
 Retorna os filmes disponiveis com quantidade em estoque maior que zero.
+
 Resposta: 
 ```
 {
