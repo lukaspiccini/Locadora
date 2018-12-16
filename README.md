@@ -31,13 +31,13 @@ Todas as requisições feitas que **não** sejam para os endpoints:
 devem ser acompanhadas do Token de autenticação adquirido no endpoint de login, este token deve ser enviado no cabeçalho da requisição com a chave **Authorization**.
 
 ### Endpoints
-* [GET /movies/movies](#GET_moviesmovies_28)
-* [GET /movies/movies/:titulo](#GET_moviesmoviestitulo_50)
-* [POST /users/user](#POST_usersuser_66)
-* [POST /authentication/login](#POST_authenticationlogin_91)
-* [POST /authentication/logout](#POST_authenticationlogout_115)
-* [POST /rents/rent](#POST_rentsrent_125)
-* [POST /rents/return](#POST_rentsreturn_148)
+* [GET /movies/movies](#get-moviesmovies)
+* [GET /movies/movies/:titulo](#get-moviesmoviestitulo)
+* [POST /users/user](#post-usersuser)
+* [POST /authentication/login](#post-authenticationlogin)
+* [POST /authentication/logout](#post-authenticationlogout)
+* [POST /rents/rent](#post-rentsrent)
+* [POST /rents/return](#post-rentsreturn)
 
 ### GET /movies/movies
 Retorna os filmes disponiveis com quantidade em estoque maior que zero.
